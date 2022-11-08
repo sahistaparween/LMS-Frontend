@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
+import { CustomerLogin } from './components/CustomerComponents/CustomerLogin';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ManagerLogin } from './components/ManagerComponents/ManagerLogin';
+import { ListCustomerComponent } from './components/CustomerComponents/ListCustomerComponents';
+import { UpdateCustomerComponent } from './components/CustomerComponents/UpdateCustomerComponent';
+import { AddCustomerComponent } from './components/CustomerComponents/CustomerRegistration';
+import React from 'react';
+import Home from './components/Home';
+
 import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <BrowserRouter>
+    
+     <div className="container-fluid">
+      <Switch>
+      <Route path='/' exact component={Home} />  
+      <Route path="/getallcustomers" component={ListCustomerComponent}></Route>
+      <Route path="/CustomerLogin" component={CustomerLogin} />
+      <Route path="/ManagerLogin" component={ManagerLogin} />
+      <Route path="/savecustomer" component={AddCustomerComponent}></Route>
+      <Route path="/updatecustomer/:id" component={UpdateCustomerComponent}></Route>  
+      </Switch>
+      </div>
+    </BrowserRouter>
     </div>
   );
 }
