@@ -22,7 +22,8 @@ function App() {
       <Route path="/getallcustomers" component={ListCustomerComponent}></Route>
       <Route path="/CustomerLogin" component={CustomerLogin} />
       <Route path="/ManagerLogin" component={ManagerLogin} />
-      <Route path="/savecustomer" component={AddCustomerComponent}></Route>
+      
+      <Route path="/addcustomer" component={AddCustomerComponent}></Route>
       <Route path="/updatecustomer/:id" component={UpdateCustomerComponent}></Route>  
       </Switch>
       </div>

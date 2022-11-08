@@ -36,9 +36,9 @@ export class AddCustomerComponent extends React.Component{
         this.changeCustomerIncomeHandler = this.changeCustomerIncomeHandler.bind(this);
         this.changeCustomerIncomeCategoryHandler = this.changeCustomerIncomeCategoryHandler.bind(this);
         this.changeCustomerPANnoHandler = this.changeCustomerPANnoHandler.bind(this);
-        this.saveCustomer = this.saveCustomer.bind(this);
+        this.addCustomer = this.addCustomer.bind(this);
     }
-    saveCustomer = (e) =>{
+    addCustomer = (e) =>{
         e.preventDefault();
         let customer = {customerName : this.state.customerName,
                         customerPassword:this.state.customerPassword,
@@ -54,7 +54,7 @@ export class AddCustomerComponent extends React.Component{
                     
                     }
         console.log('Customer =>'+JSON.stringify(customer))
-        CustomerService.saveCustomer(customer).then(res =>{
+        CustomerService.addCustomer(customer).then(res =>{
             alert("Customer added succesfully....")
         })
     }
@@ -137,7 +137,7 @@ export class AddCustomerComponent extends React.Component{
                                   value={this.state.customerAddress} onChange = {this.changeCustomerAddressHandler}/>
                                 </div>
                                 <div className="form-group">
-                                <label>Enter Date Of Biirth</label>
+                                <label>Enter Date Of Birth</label>
                                   <input type="text" name="customerDOB" id="" className="form-control" placeholder="date of birth" 
                                   value={this.state.customerDOB} onChange = {this.changeCustomerDOBHandler}/>
                                 </div>
@@ -171,7 +171,7 @@ export class AddCustomerComponent extends React.Component{
 
 
                                 <div>
-                                    <button className="btn btn-primary" onClick={this.saveCustomer.bind(this)}>Add</button>
+                                    <button className="btn btn-primary" onClick={this.addCustomer.bind(this)}>Add</button>
                                             &nbsp;&nbsp;&nbsp;&nbsp;
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)}>Cancel</button>
                             
