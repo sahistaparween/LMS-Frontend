@@ -61,7 +61,7 @@ export class ManagerLogin extends Component{
     render(){
         return(
             <div className='wholeBody6'>
-                <div className="container" id="container">
+                <div className="container-login" id="container-login">
                     <div className="form-container sign-in-container">
                         <form >
                             <h1>Manager Login Page</h1>

@@ -1,32 +1,26 @@
 
 import axios from "axios";
-/* const cors=require("cors");
-const corsOptions ={
-   origin:'*', 
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
-} */
 
 class CustomerService{
 
     getAllCustomers(){
-        return axios.get("http://localhost:8686/customer/getallcustomers");
+        return axios.get("http://localhost:8686/loanmanagementsystem/customerapi/getallcustomers");
     }
 
     addCustomer(customer){
-        return axios.post("http://localhost:8686/customer/addcustomer",customer);
+        return axios.post("http://localhost:8686/loanmanagementsystem/customerapi/addcustomer",customer);
     }
 
-    deleteCustomer(id){
-        return axios.delete("http://localhost:8686/customer/deletecustomer/"+id);
+    deleteCustomer(Id){
+        return axios.delete("http://localhost:8686/loanmanagementsystem/customerapi/deletecustomer/"+Id);
     }
 
-    updateCustomer(customer,id){
-        return axios.put("http://localhost:8686/customer/updatecustomer/"+id,customer);
+    updateCustomer(customer,Id){
+        return axios.put("http://localhost:8686/loanmanagementsystem/customerapi/updatecustomer/"+Id,customer);
     } 
 
-    getCustomer(id){
-        return axios.get("http://localhost:8686/customer/getcustomer/"+id);
+    getCustomer(Id){
+        return axios.get("http://localhost:8686/loanmanagementsystem/customerapi/getcustomer/"+Id);
     }
 
 }

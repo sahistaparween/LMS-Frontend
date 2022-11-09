@@ -77,7 +77,7 @@ export class CustomerLogin extends Component {
                     </div>
 
                 </div>
-                <div className="form-group" >
+                <div className="form-group-loginCustomer" >
 
                     <div ><Link className="card-link" to="/CustomerRegister"><button type="button" className="btn  btn-link btn-block">New User? Register Now!</button></Link>  </div>
                 </div>

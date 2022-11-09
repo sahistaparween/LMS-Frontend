@@ -24,7 +24,7 @@ function App() {
       <Route path="/ManagerLogin" component={ManagerLogin} />
       
       <Route path="/addcustomer" component={AddCustomerComponent}></Route>
-      <Route path="/updatecustomer/:id" component={UpdateCustomerComponent}></Route>  
+      <Route path="/updatecustomer/:Id" component={UpdateCustomerComponent}></Route>  
       </Switch>
       </div>
     </BrowserRouter>

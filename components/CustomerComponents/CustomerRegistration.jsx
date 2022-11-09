@@ -102,14 +102,14 @@ export class AddCustomerComponent extends React.Component{
 
                 <br></br>
                 <div className="container-customer">
-                    <div className="row">
+                    <div className="row-register">
                         <div className="Main">
                             <h2>Customer Registration</h2>
                         </div>
                          <div className="image">
                             <img src={image1} alt="Rgister" />
                             </div> 
-                        <div className="form">    
+                        <div className="form-register">    
                             <form>
                                 <div className="form-group">
                                   <label>Enter Name</label>
