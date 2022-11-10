@@ -1,5 +1,5 @@
 
-.intro-header {
+.intro-header-home {
     padding-top: 50px; 
     padding-bottom: 50px;
     text-align: left;
@@ -12,16 +12,17 @@
   
 }
 
-.intro-message {
+.intro-message-home {
     position: relative;
     padding-top: 10%;
     padding-bottom: 20%;
+    text-align: center;
 }
 
-.intro-message > h1 {
+.intro-message-home > h1 {
     font-size: 4em;
     font-weight: 400;
-  text-align: left;
+  text-align: center;
  
 }
 
@@ -30,7 +31,7 @@
     font-size: 2.5em;
     font-weight: 150;
     letter-spacing: 4;
-    text-align: left;
+    text-align: center;
  
 }
 
@@ -43,11 +44,11 @@
 }
 .landImg{
   
-  margin-left: 15%;
+  margin-left: 2%;
   margin-top: 5%;
   
 }
-.button{
+.button1{
     margin-top: 50px;
     margin-bottom: 10px;
     background: #056409;
@@ -70,7 +71,7 @@
     
   }
   
-  .button:hover{
+  .button1:hover{
     margin-top: 55px;
     height: 95%;
     background: #6dde56;

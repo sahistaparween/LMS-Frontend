@@ -120,7 +120,7 @@ import NavBar from './Navbar';
 //import Calculator from '../Calculator';
 import '../css/Home.css'
 //import { render } from '@testing-library/react';
-function Home() {
+function Home(props) {
   
 
   return (
@@ -129,12 +129,12 @@ function Home() {
       <NavBar/>
       <body>
    
-   <div className="intro-header">
-       <div className="container">
+   <div className="intro-header-home">
+       <div className="container-Home">
 
-           <div className="row">
+           <div className="row-home">
                <div className="col-lg-8">
-                   <div className="intro-message">   
+                   <div className="intro-message-home">   
                        <h2 className="animated slideInLeft">Check Eligibility For Loan </h2>
                        <br></br>
                        <label>
@@ -180,7 +180,7 @@ function Home() {
                     </label>
                          <ul className="list-inline intro-social-buttons">
                            <li>
-                                <a href="#"><button className="button animated bounceInUp btn btn-info btn-lg"> <span className="network-name">Check</span></button></a>
+                                <a href="#"><button className="button1 animated bounceInUp btn btn-info btn-lg"> <span className="network-name">Check</span></button></a>
                            </li>
                            
                            <li>

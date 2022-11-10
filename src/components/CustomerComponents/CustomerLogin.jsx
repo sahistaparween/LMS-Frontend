@@ -7,22 +7,22 @@ export class CustomerLogin extends Component {
         super(props);
         this.state = {
             Customer: [],
-            username: '',
-            password: '',
+            customerName: '',
+            customerPassword: '',
             cus: '',
         }
 
-        this.changeCustomerUsername = this.changeCustomerUsername.bind(this);
+        this.changeCustomerName = this.changeCustomerName.bind(this);
         this.changeCustomerPassword = this.changeCustomerPassword.bind(this);
         this.validateUser = this.validateUser.bind(this);
     }
 
-    changeCustomerUsername = (event) => {
-        this.setState({ username: event.target.value })
+    changeCustomerName= (event) => {
+        this.setState({ customerName: event.target.value })
     }
 
     changeCustomerPassword = (event) => {
-        this.setState({ password: event.target.value })
+        this.setState({ customerPassword: event.target.value })
     }
 
     validateUser = (e) => {
@@ -30,23 +30,23 @@ export class CustomerLogin extends Component {
         let find = 0;
         for (let i = 0; i < this.state.cus.length; i++) {
 
-            if ((this.state.username === this.state.cus[i].username) && (this.state.password === this.state.cus[i].password)) {
+            if ((this.state.customerName === this.state.cus[i].customerName) && (this.state.customerPassword === this.state.cus[i].customerPassword)) {
 
-                alert(" welcome " + this.state.cus[i].customerFirstName + " " + this.state.cus[i].customerLastName);
+                alert(" welcome " + this.state.cus[i].customerName );
                 find = 1;
-                this.props.history.push("/ListCustomerComponent");
+                this.props.history.push("/getcustomer");
             }
         }
         if (find === 0) {
-            alert("Inavlid Username or Password");
+            alert("Inavlid customerName or customerPassword");
         }
 
 
     }
 
     componentDidMount() {
-        let Customer = { username: this.state.username, password: this.state.password }
-        console.log(this.state.username)
+        let Customer = { customerName: this.state.customerName, customerPassword: this.state.customerPassword }
+        console.log(this.state.customerName)
         console.log('Customer =>' + JSON.stringify(Customer));
         CustomerService.getAllCustomers().then((res) => {
             this.setState({ Customer: res.data })
@@ -67,8 +67,8 @@ export class CustomerLogin extends Component {
                         <form >
                             <h1>Customer Login Page</h1>
                             <div style={{ margin: '30px 0' }}>
-                                <input type="text" placeholder="Username" style={{marginBottom:'30px'}} name="username" value={this.state.username} onChange={this.changeCustomerUsername} />
-                                <input type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.changeCustomerPassword} />
+                                <input type="text" placeholder="customerName" style={{marginBottom:'30px'}} name="customerName" value={this.state.customerName} onChange={this.changeCustomerName} />
+                                <input type="text" placeholder="customerPassword" name="customerPassword" value={this.state.customerPassword} onChange={this.changeCustomerPassword} />
                             </div>
                             <button onClick={this.validateUser}>Login</button>
 
@@ -77,9 +77,9 @@ export class CustomerLogin extends Component {
                     </div>
 
                 </div>
-                <div className="form-group" >
+                <div className="form-group-loginCustomer" >
 
-                    <div ><Link className="card-link" to="/CustomerRegister"><button type="button" className="btn  btn-link btn-block">New User? Register Now!</button></Link>  </div>
+                    <div ><Link className="card-link" to="/addcustomer"><button type="button" className="btn  btn-link btn-block">New User? Register Now!</button></Link>  </div>
                 </div>
 
             </div>

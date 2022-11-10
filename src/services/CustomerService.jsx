@@ -4,23 +4,23 @@ import axios from "axios";
 class CustomerService{
 
     getAllCustomers(){
-        return axios.get("http://localhost:8080/customer/getallcustomers");
+        return axios.get("http://localhost:8686/loanmanagementsystem/customerapi/getallcustomers");
     }
 
     addCustomer(customer){
-        return axios.post("http://localhost:8080/customer/savecustomer",customer);
+        return axios.post("http://localhost:8686/loanmanagementsystem/customerapi/addcustomer",customer);
     }
 
-    deleteCustomer(id){
-        return axios.delete("http://localhost:8080/customer/deletecustomer/"+id);
+    deleteCustomer(Id){
+        return axios.delete("http://localhost:8686/loanmanagementsystem/customerapi/deletecustomer/"+Id);
     }
 
-    updateCustomer(customer,id){
-        return axios.put("http://localhost:8080/customer/updatecustomer/"+id,customer);
+    updateCustomer(customer,Id){
+        return axios.put("http://localhost:8686/loanmanagementsystem/customerapi/updatecustomer/"+Id,customer);
     } 
 
-    getCustomer(id){
-        return axios.get("http://localhost:8080/customer/getcustomer/"+id);
+    getCustomerById(Id){
+        return axios.get("http://localhost:8686/loanmanagementsystem/customerapi/getcustomer/"+Id);
     }
 
 }

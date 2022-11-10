@@ -1,0 +1,24 @@
+div.row-getById{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-style: oblique;
+    height: 50px;
+    left: 5px;
+    /* width: auto; */
+    margin-top: 50.1px;
+    position:relative;
+    text-align: left;
+}
+div.MyAccount{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    height: 50px;
+    left: 5px;
+    
+    margin-top: 50.1px;
+    position: relative;
+    text-align: left;
+}
+ div.dropdown-menu-my-account-section{
+    position: relative;
+
+} 

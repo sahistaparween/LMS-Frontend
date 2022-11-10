@@ -5,28 +5,28 @@ export class UpdateCustomerComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            customerId : this.props.match.params.id,
+            customerId : this.props.match.params.Id,
             customerName: '',
             customerEmail: '',
             customerPhone: '',
             customerAddress: '',
-            customerPassword: '',
+            customerPassword: ''
             
             
             
         }
 
-        this.changeCustomerNameHandler = this.changecustomerNameHandler.bind(this);
+        this.changeCustomerNameHandler = this.changeCustomerNameHandler.bind(this);
         this.changeCustomerEmailHandler = this.changeCustomerEmailHandler.bind(this);
         this.changeCustomerPhoneHandler = this.changeCustomerPhoneHandler.bind(this);
         this.changeCustomerAddressHandler = this.changeCustomerAddressHandler.bind(this);
         this.changeCustomerPasswordHandler = this.changeCustomerPasswordHandler.bind(this);
         
-        this.updatecustomer = this.updatecustomer.bind(this)
+        this.updateCustomer = this.updateCustomer.bind(this)
     }
 
-    /* componentDidMount(){
-        CustomerService.getcustomer(this.state.customerId).then((res) =>{
+     componentDidMount(){
+        CustomerService.getCustomerById(this.state.customerId).then((res) =>{
             let customer = res.data;
             this.setState({
                 customerName: customer.customerName,
@@ -37,9 +37,9 @@ export class UpdateCustomerComponent extends Component {
                 
             })
         })
-    }
- */
-    updatecustomer = (e) => {
+    }  
+ 
+    updateCustomer = (e) => {
         e.preventDefault();
         let customer = {
             customerName: this.state.customerName,
@@ -47,11 +47,10 @@ export class UpdateCustomerComponent extends Component {
             customerPhone: this.state.customerPhone,
             customerAddress: this.state.customerAddress,
             customerPassword: this.state.customerPassword,
-           
-            
         }
-        console.log('Customer =>' + JSON.stringify(customer))
-        CustomerService.updatecustomer(customer,this.state.customerId).then(res => {
+        
+        console.log('customer =>' + JSON.stringify(customer))
+        CustomerService.updateCustomer(customer,this.state.customerId).then(res => {
             alert("Customer updated successfully....")
         })
         //this.props.history.push("/listcustomer");
@@ -61,7 +60,7 @@ export class UpdateCustomerComponent extends Component {
         alert("leaving with out saving.....")
     }
 
-    changecustomerNameHandler(event){
+    changeCustomerNameHandler(event){
         this.setState({customerName:event.target.value})
     }
 
@@ -85,41 +84,46 @@ export class UpdateCustomerComponent extends Component {
         return (
             <div>
                 <br ></br>
-                <div className="container">
-                    <div className="row">
+                <div className="container-update">
+                    <div className="row1">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
                             <h2>Edit customer</h2>
-                        <div className="card-body">
+                        <div className="card-body-update">
                             <form>
-                                <div className="form-group">
+                                <div className="form-group1">
                                   <label >customer Name</label>
                                   <input type="text" name="customerName" id="" className="form-control" placeholder="Enter customerName" 
-                                   value={this.state.customerName} onChange={this.changecustomerNameHandler} />
+                                   value={this.state.customerName} onChange={this.changeCustomerNameHandler} />
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group1">
                                   <label >Customer Email</label>
                                   <input type="text" name="customerEmail" id="" className="form-control" placeholder="Enter customerEmail" 
-                                   value={this.state.customerEmail} onChange={this.changecustomerEmailHandler} />
+                                   value={this.state.customerEmail} onChange={this.changeCustomerEmailHandler} />
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group1">
                                   <label >Customer Phone</label>
                                   <input type="text" name="customerPhone" id="" className="form-control" placeholder="Enter customerPhone" 
-                                   value={this.state.customerPhone} onChange={this.changecustomerPhoneHandler} />
+                                   value={this.state.customerPhone} onChange={this.changeCustomerPhoneHandler} />
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group1">
                                   <label >Customer Address</label>
                                   <input type="text" name="customerAddress" id="" className="form-control" placeholder="Enter customerAddress" 
-                                   value={this.state.customerAddress} onChange={this.changecustomerAddressHandler} />
+                                   value={this.state.customerAddress} onChange={this.changeCustomerAddressHandler} />
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group1">
                                   <label >Customer Password</label>
                                   <input type="text" name="customerPassword" id="" className="form-control" placeholder="Enter customerPassword" 
-                                   value={this.state.customerPassword} onChange={this.changecustomerPasswordHandler} />
+                                   value={this.state.customerPassword} onChange={this.changeCustomerPasswordHandler} />
                                 </div>
-                               
+                                <div>
+                                    <button className="btn btn-primary" onClick={this.updateCustomer.bind(this)}>Update</button>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)}>Cancel</button>
+                            
+                                </div>
 
-                                <button type="button" className="btn btn-success" onClick={this.updatecustomer}>Update</button>
-                                <button type="button" className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
+                                {/* <button type="button" className="btn btn-success" onClick={this.updateCustomer}>Update</button>
+                                <button type="button" className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button> */}
                             </form>
                         </div>
                     </div>

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import CustomerService from "../../services/CustomerService";
 
-
 export class ListCustomerComponent extends Component{
     constructor(props){
         super(props);
@@ -14,6 +13,7 @@ export class ListCustomerComponent extends Component{
     
     componentDidMount(){
         CustomerService.getAllCustomers().then ((res) =>{
+            
             console.log(res.data);
             this.setState({Customers : res.data});
         })
@@ -21,6 +21,7 @@ export class ListCustomerComponent extends Component{
 
     deleteCustomer(customerId){
         CustomerService.deleteCustomer(customerId).then(res =>{
+            alert("Confirm Delete")
             this.setState({Customers:this.state.Customers.filter(Customer => Customer.customerId !== customerId)});
         })
     }
@@ -71,8 +72,8 @@ export class ListCustomerComponent extends Component{
                                         <td>{Customer.customerPANno}</td>
                                         <td>
                                         <button type="button" className="btn btn-success" style={{marginRight:"10px"}}>
-                                            <Link to={"/updateCustomer/" + Customer.customerId} className="stylelink">
-                                                update
+                                            <Link to={"/updatecustomer/" + Customer.customerId} className="stylelink">
+                                                Update
                                             </Link> 
                                         </button>
                                         <button className="btn btn-danger" onClick={()=>this.deleteCustomer(Customer.customerId)}>Delete</button>
