@@ -1,85 +1,85 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import '../../css/ManagerLogin.css'
-import { useEffect } from "react";
-
-/* import { useLocation } from "react-router-dom"; */
+import React from "react"
+import '../../css/ManagerLogin.css';
 import ManagerService from '../../services/ManagerService';
-export class ManagerLogin extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            Manager: [],
-            managerName: '',
-            managerPassword: '',
-            man: ''
-            
-        }
-        
-        this.changeManagerName=this.changeManagerName.bind(this);
-        this.changeManagerPassword=this.changeManagerPassword.bind(this);
-        this.validateManager=this.validateManager.bind(this);
+export class ManagerLogin extends React.Component{ 
+  constructor(props){
+    super(props);
+    this.state = {
+        Manager: [],
+        managerId: '',
+        managerPassword : '',
+        man : ''
     }
-
-    changeManagerName= (event) => {
-        this.setState({ mangerName: event.target.value })
-    }
-
-    changeManagerPassword= (event) => {
-        this.setState({ managerPassword: event.target.value })
-    }
-    componentDidMount(){
-        /* let Manager= { managerName: this.state.managerName, password: this.state.managerPassword } */
-        /* console.log(this.state.managerName)
-        console.log('Manager =>' + JSON.stringify(Manager)); */
-        ManagerService.getAllManager().then((res) => {
-            this.setState({ Manager: res.data })
-            this.state.man = (res.data);
-            console.log(this.state.man);
-        })
-    }
-
-    validateManager= (e) => {
-       /*  e.preventDefault()
-        let find=0;
-        for (let i = 0; i < this.state.man.length; i++){
-            if ((this.state.managerName === this.state.man[i].managerName) && (this.state.managerPassword === this.state.man[i].managerPassword)){
-                alert(" welcome " + this.state.man[i].ManagerName);
-                find=1; */
-                /* this.setState({ManagerId:this.state.man[i].ManagerId}); */
-               
-                /* localStorage.setItem("ManagerId",this.state.manager[i].managerId); */
-                this.props.history.push("/getallmanager");
-            }
-        // }
-        // if(find===0){
-        //     alert("Invalid managerName or Password");
-        // }
-   // }
-
+    this.changeManagerIdHandler = this.changeManagerIdHandler.bind(this);
+    this.changeManagerPasswordHandler = this.changeManagerPasswordHandler.bind(this);
+    this.buttonClickHandler = this.buttonClickHandler.bind(this);
     
+}
+
+componentDidMount(){
+        
+    ManagerService.getAllManager().then ((res) =>{
+      console.log(res.data);
+      this.setState({Manager : res.data});
+      this.state.man = (res.data);
+  })
+}
+
+changeManagerIdHandler(event){
+  this.setState({managerId:event.target.value})
+}
+changeManagerPasswordHandler(event){
+  this.setState({managerPassword:event.target.value})
+}
+buttonClickHandler = (e) => {
+
+  e.preventDefault();
+  let find = 0;
+  for (let i = 0; i < this.state.man.length; i++) {
+
+      if ((this.state.managerId == this.state.man[i].managerId) && (this.state.managerPassword == this.state.man[i].managerPassword)) {
+
+          alert(" welcome " + " " + this.state.managerId);
+          find = 1;
+          this.props.history.push("/getallcustomers/"+this.state.managerId);
+      }
+  }
+  if (find === 0) {
+      alert("Inavlid Username or Password");
+  }
+}
+
+
 
     render(){
         return(
-            <div className='wholeBody6'>
-                <div className="container-login" id="container-login">
-                    <div className="form-container sign-in-container">
-                        <form >
-                            <h1>Manager Login Page</h1>
-                            <div style={{ margin: '30px 0' }}>
-                                <input type="text" placeholder="managerName" name="managerName" defaultvalue={this.state.managerName} onChange={this.changeManagerName} />
-                                <input type="text" placeholder="Password" name="password" value={this.state.managerPassword}  onChange={this.changeManagerPassword}/>
-                            </div>
-                            <button onClick={this.validateManager}>Login</button>
+      <div className="Manager">
 
-                            {/* <button >Back to Home page</button> */}
-                        </form>
-                    </div>
+      <form className="Auth-form2">
+        <div className="container">
+          <h3 className="Auth-form-title">Sign In</h3>
+          <div className="form">
+            <label>Enter id</label>
+            <input type="text" name="managerId" Id="" className="form-control" placeholder="Id" 
+            value={this.state.managerId} onChange = {this.changeManagerIdHandler}/>
+        </div>
+        <div className="form">
+          <label>Enter Password</label>
+            <input type="text" name="managerPassword" id="" className="form-control" placeholder="Password" 
+            value={this.state.managerPassword} onChange = {this.changeManagerPasswordHandler}/>
+          </div>
 
-                </div>
-
-            </div>
-        )
-    }
-
+          <div>                                            
+              <button className="btn btn-danger" onClick={this.buttonClickHandler}>Sign in</button>
+          </div>
+          <p className="forgot-password text-right mt-2">
+            Forgot <a href="/">password?</a>
+          </p>
+        </div>
+      </form>
+      
+    </div>
+    
+  )
+}
 }

@@ -11,7 +11,7 @@ import { UpdateLoan } from './components/LoanComponents/UpdateLoanComponent';
 import './App.css';
 import { GetCustomerById } from './components/CustomerComponents/GetCustomerById';
 import { AddLoanComponent } from './components/LoanComponents/AddLoanComponent';
-import GetLoanById from './components/LoanComponents/GetLoanById';
+import {GetLoanById} from './components/LoanComponents/GetLoanById'
 import { ListLoanComponent } from './components/LoanComponents/ListLoanComponent';
 import { GetAllManagers } from './components/ManagerComponents/GetAllManagers';
 function App() {

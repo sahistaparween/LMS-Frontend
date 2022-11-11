@@ -6,6 +6,7 @@ export class AddLoanComponent extends Component {
         super(props);
         this.state = {
             loanType: '',
+           
             loanTerm: '',
             loanAmount: '',
         }

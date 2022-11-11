@@ -57,10 +57,10 @@ export class GetCustomerById extends Component{
             </Dropdown.Toggle>
 
              <Dropdown.Menu>
-        
+           
         <Dropdown.Item href="/addloandetails">Apply For Loan</Dropdown.Item>
-        <Dropdown.Item href="/getloandetails/id">View Loan History</Dropdown.Item>
-        <Dropdown.Item href="/updatecustomer/id">Update Customer</Dropdown.Item>
+        <Dropdown.Item href="/getloandetails/Id">View Loan History</Dropdown.Item>
+        <Dropdown.Item href="/updatecustomer/Id">Update Customer</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
      <div className="row-getById"> 

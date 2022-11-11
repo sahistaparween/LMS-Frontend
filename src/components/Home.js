@@ -114,9 +114,10 @@ export default class HomeComponent extends Component{
 
 import React from 'react';
 
-
+//import { LoanCalculator } from '../LoanCalculator';
 import Footer from './Footer';
 import NavBar from './Navbar';
+
 //import Calculator from '../Calculator';
 import '../css/Home.css'
 //import { render } from '@testing-library/react';
@@ -131,8 +132,8 @@ function Home(props) {
    
    <div className="intro-header-home">
        <div className="container-Home">
-
-           <div className="row-home">
+       {/* <LoanCalculator /> */}
+            <div className="row-home">
                <div className="col-lg-8">
                    <div className="intro-message-home">   
                        <h2 className="animated slideInLeft">Check Eligibility For Loan </h2>
@@ -192,7 +193,7 @@ function Home(props) {
              </div> 
                </div>
              <div className="col-lg-4"></div>
-           </div>
+           </div> 
 
        </div>
 

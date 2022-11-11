@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 
 import LoanService from '../../services/LoanService'
 
-class GetLoanById extends Component {
+export class GetLoanById extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,40 +14,49 @@ class GetLoanById extends Component {
     
 
     componentDidMount() {
-        LoanService.getLoanDetails().then((res) => {
-            this.setState({ loans: res.data })
-            console.log(this.state.loans);
+        LoanService.getLoanDetails(this.props.match.params.Id).then((res) => {
+            console.log(res.data);
+            this.setState({loans : res.data});
 
 
         })
-        console.log(this.state.loans);
+       
 
     }
-   
- 
-
-    render() {
+   render() {
         
         
         return (
 
             <div className='loanbyid'>
                 <h1>Loan Details</h1>
-                <div style={{margin:'50px'}}>
-                    <div className='now' style={{ display: 'flex',flexWrap: 'wrap'}}>
-                        {
-                            this.state.loans.map(loan => {
-                                return <loan key={loan.loanId} dif={loan.loanId} wholeDetail={loan} type={loan.loanType} term={loan.loanTerm} amount={loan.loanAmount}/>
-                            })
-                        }
-                    </div>
-                </div>
+                <div className="row-getById"> 
+            <div className="row-getLoanById">
+                <table className="table table-striped table-bordered">
+                    
+                        <tr>
+                            <th>Loan Id</th>
+                            <td>{this.state.loans.loanId}</td>
+                        </tr>
+                            <tr><th>Loan Type</th>
+                            <td>{this.state.loans.loanType}</td>
+                        </tr>
+                        <tr>
+                            <th>Loan Term</th>
+                            <td>{this.state.loans.loanTerm}</td>
+                        </tr>
+                        <tr>
+                            <th>Loan Amount</th>
+                            <td>{this.state.loans.loanAmount}</td>
+                        </tr>
+                        
                 
- 
+                </table>
+                </div>
+                </div>
                 </div>
         )
 
     }
 
 }
-export default GetLoanById;
